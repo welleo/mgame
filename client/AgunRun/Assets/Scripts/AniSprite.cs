@@ -20,9 +20,9 @@ public class AniSprite : MonoBehaviour {
 		int index = (int)(Time.time * frameCnt);
 		index = index % frameCnt;
 
-		int dirVal = -1;
-		if(direction == AniSprite.DIR_LEFT) {
-			dirVal = 1;
+		int dirVal = 1;
+		if(direction == AniSprite.DIR_RIGHT) {
+			dirVal = -1;
 		}
 
 		float scaleX = dirVal * 1.0f / frameCnt;

@@ -3,7 +3,10 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
-	public float speed = 10;
+	public float walkSpeed;
+	public float gravity;
+	public float groundY;
+	public float walkJump;
 
 	public Material runMaterial;
 	public Material jumpMaterial;
@@ -11,7 +14,9 @@ public class PlayerController : MonoBehaviour {
 	private AniSprite aniSprite;
 	private CharacterController controller;
 
-	private Vector3 vec;
+	private Vector3 vec = Vector3.zero;
+	private bool jumpEnable = false;
+	private int dir;
 
 	// Use this for initialization
 	void Start () {	
@@ -21,11 +26,32 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		vec = new Vector3(Input.GetAxis("Horizontal"),0,0);
-		transform.renderer.material = runMaterial;
-		int dir = Input.GetAxis ("Horizontal") < 0 ? AniSprite.DIR_LEFT : AniSprite.DIR_RIGHT;
-		aniSprite.PlayMotion (10, dir);
-		vec *= speed;
+		float horiVal = Input.GetAxis ("Horizontal");
+		if(horiVal != 0){
+			dir = horiVal > 0 ? AniSprite.DIR_RIGHT : AniSprite.DIR_LEFT;
+		}
+		//		Debug.Log (transform.position.y);
+		if(transform.position.y > groundY) {
+			vec.x = horiVal;
+			if(jumpEnable) {
+				vec.x *= walkSpeed;
+				transform.renderer.material = jumpMaterial;
+				aniSprite.PlayMotion(11,dir);
+			}
+		}else {
+			vec = new Vector3(horiVal,0,0);
+			jumpEnable = false;
+			transform.renderer.material = runMaterial;
+			aniSprite.PlayMotion (10, dir);
+			vec *= walkSpeed;
+			
+			if(Input.GetButtonDown("Jump")) {
+				jumpEnable = true;
+				vec.y = walkJump;
+			}
+		}
+
+		vec.y -= gravity * Time.deltaTime;
 		controller.Move (vec* Time.deltaTime);
 	}
 }

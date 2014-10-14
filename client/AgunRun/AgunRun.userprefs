@@ -1,14 +1,16 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerController.cs">
     <Files>
-      <File FileName="Assets/Scripts/AniSprite.cs" Line="31" Column="24" />
-      <File FileName="Assets/Scripts/PlayerController.cs" Line="28" Column="16" />
+      <File FileName="Assets/Scripts/PlayerController.cs" Line="34" Column="22" />
+      <File FileName="Assets/Scripts/AniSprite.cs" Line="12" Column="3" />
+      <File FileName="Assets/Scripts/PlayerController.cs" Line="52" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/lijia/Documents/Unity/mgame/client/AgunRun/Assets/Scripts/AniSprite.cs" line="32" />
+      <Breakpoint file="/Users/lijia/Documents/Unity/mgame/client/AgunRun/Assets/Scripts/PlayerController.cs" line="30" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

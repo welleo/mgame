@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour {
 				aniSprite.PlayMotion(11,dir);
 			}
 		}else {
+			Vector3 pos = transform.position;
+			transform.position = new Vector3(pos.x,groundY,pos.z);
 			vec = new Vector3(horiVal,0,0);
 			jumpEnable = false;
 			transform.renderer.material = runMaterial;

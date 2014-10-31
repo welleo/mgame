@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour {
 			vec = new Vector3(horiVal,0,0);
 			jumpEnable = false;
 			transform.renderer.material = runMaterial;
-			aniSprite.PlayMotion (10, dir);
+			aniSprite.PlayMotion (4, dir);
 			vec *= walkSpeed;
 			
 			if(Input.GetButtonDown("Jump")) {
